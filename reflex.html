@@ -4,12 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viswas Reflexes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" 
-    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" 
-    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 
     <style>
         body {
@@ -36,7 +33,7 @@
     <h1>Viswas Reflexes</h1>
 
     <div class="container">
-        <p id="counter">Count: 5</p>
+        <p id="counter">Count: --</p>
         <p id="target">Your time: --</p>
 
         <button id="goBtn">Go</button>
@@ -44,26 +41,28 @@
     </div>
 
     <script>
-        let haltTime = undefined; // Stores the time when Halt button is clicked
+        let haltTime = undefined;
+        let countdownTime;
 
         function recordTime() {
-            haltTime = Date.now(); // Capture current time in milliseconds
+            haltTime = Date.now();
             console.log("Halt Time:", haltTime);
         }
 
         function beginTime() {
-            haltTime = undefined; // Reset haltTime
+            haltTime = undefined;
             let countdownElement = document.getElementById("counter");
             let targetElement = document.getElementById("target");
 
-            // Loop to create the countdown effect
-            for (let i = 0; i <= 5; i++) {
+            countdownTime = Math.floor(Math.random() * 9) + 2; // Random between 2 and 10
+            console.log("Countdown starts at:", countdownTime);
+
+            for (let i = 0; i <= countdownTime; i++) {
                 setTimeout(() => {
-                    countdownElement.innerHTML = `Count: ${5 - i}`;
+                    countdownElement.innerHTML = `Count: ${countdownTime - i}`;
                 }, i * 1000);
             }
 
-            // Final check after 5 seconds
             setTimeout(() => {
                 if (haltTime === undefined) {
                     targetElement.innerHTML = "Not soon enough!";
@@ -72,7 +71,7 @@
                     let reactionTime = (targetTime - haltTime) / 1000;
                     targetElement.innerHTML = `Time was ${reactionTime.toFixed(2)} seconds`;
                 }
-            }, 5000);
+            }, countdownTime * 1000);
         }
 
         document.getElementById("goBtn").onclick = beginTime;
