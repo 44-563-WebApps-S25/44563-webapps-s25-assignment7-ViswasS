@@ -4,6 +4,6 @@ An assignment on java script modifying the DOM and using anonymous callback func
 
 
 Hosted at -
-- [Reflex Page]( https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment7-ViswasS/reflex.html )
 - [Treasure Page]( https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment7-ViswasS/treasure.html )
+- [Reflex Page]( https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment7-ViswasS/reflex.html )
 - [Divs Page]( https://44-563-webapps-s25.github.io/44563-webapps-s25-assignment7-ViswasS/divs.html )
