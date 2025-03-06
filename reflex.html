@@ -68,8 +68,8 @@
                     targetElement.innerHTML = "Not soon enough!";
                 } else {
                     let targetTime = Date.now();
-                    let reactionTime = (targetTime - haltTime) / 1000;
-                    targetElement.innerHTML = `Time was ${reactionTime.toFixed(2)} seconds`;
+                    let reactionTime = (targetTime - haltTime);
+                    targetElement.innerHTML = `Time was ${reactionTime.toFixed(2)} milliseconds`;
                 }
             }, countdownTime * 1000);
         }
